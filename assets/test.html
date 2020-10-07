@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- External Stylesheets - CDN -->
+        <link 
+        rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous"
+    >
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+    >
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="headlines" class="list-group">
+                    <a class="list-group-item list-group-item-light list-group-item-action active" href="#content-0">Current</a>
+                    <a class="list-group-item list-group-item-light list-group-item-action" href="#content-1">Yesterday</a>
+                    <a class="list-group-item list-group-item-light list-group-item-action" href="#content-2">Catchup</a>
+                    <a class="list-group-item list-group-item-light list-group-item-action" href="#content-3">Catchup</a>
+                    <a class="list-group-item list-group-item-light list-group-item-action" href="#content-4">Catchup</a>
+                </div>                                                     <!-- end headlines list-group, "table of contents "-->
+            </div>                                                         <!-- end col-2 -->
+            <div class="col-sm-10 border">
+                <div data-spy="scroll" data-target="#headlines" data-offset="0" class="box border">
+                    <div id="content-0"></div>
+                    <div id="content-1"></div>
+                    <div id="content-2"></div>
+                    <div id="content-3"></div>
+                    <div id="content-4"></div>
+                </div>                                                     <!-- end spy-->
+            </div>                                                         <!-- end col-10 -->
+        </div>                                                             <!-- end row -->
+    </div>                                                                 <!-- end container -->
+</div>                                                                     <!-- end of body container-fluid -->
+
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JavaScript, then user logic.js file -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- scrollspy jQuery functionality per Bootstrap documentation -->
+        <script> 
+            // $('[data-spy="scroll"]').each(function() {
+            //     let $spy = $(this).scrollspy("refresh")
+            // });
+            $('[data-spy="scroll"]').scrollspy({target: "headlines"});
+        </script>
+       
+</body>
+</html>

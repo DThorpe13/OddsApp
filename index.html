@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OddsApp</title>
+    <!-- External Stylesheets - CDN -->
+    <link 
+        rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous"
+    >
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+    >
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+        rel="stylesheet"
+    >
+    <link  
+        rel="stylesheet" 
+        href="assets/style.css"
+    > 
+</head>
+<body>
+    <div class="container background">
+        <div id="futuresMarket" class="container-fluid mb-1">
+            <div class="row">
+                <button id="WorldSeriesBtn" class="btn btn-danger border col-sm-4" type="button" data-toggle="collapse" data-target="#worldSeriesWinnerOdds" aria-expanded="false" aria-controls="collapse">
+                World Series Odds 2020
+                </button>
+                <button id="ALWinnerBtn" class="btn btn-danger border col-sm-4" type="button" data-toggle="collapse" data-target="#ALWinnerOdds" aria-expanded="false" aria-controls="collapse">
+                AL Winner 2020
+                </button> 
+                <button id="NLWinnerBtn" class="btn btn-danger border col-sm-4" type="button" data-toggle="collapse" data-target="#NLWinnerOdds" aria-expanded="false" aria-controls="collapse">
+                NL Winner 2020
+                </button>
+            </div>
+            <div class="row">
+                <div id="worldSeriesWinnerOdds" class="collapse col-12 text-center border mt-4"></div>
+                <div id="ALWinnerOdds" class="collapse col-12 text-center border"></div>
+                <div id="NLWinnerOdds" class="collapse col-12 text-center border"></div>
+            </div>
+        </div>
+
+        <!-- News Feed -->
+        <div class="container-fluid mt-5 news">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div id="headlines" class="list-group">
+                        <a class="list-group-item list-group-item-primary list-group-item-action" href="#content-0">Current</a>
+                        <a class="list-group-item list-group-item-dark list-group-item-action" href="#content-1">Yesterday</a>
+                        <a class="list-group-item list-group-item-light list-group-item-action" href="#content-2">Catchup</a>
+                        <a class="list-group-item list-group-item-light list-group-item-action" href="#content-3">Catchup</a>
+                        <a class="list-group-item list-group-item-light list-group-item-action" href="#content-4">Catchup</a>
+                    </div>                                                     <!-- end headlines list-group, "table of contents "-->
+                </div>                                                         <!-- end col-2 -->
+                <div class="col-sm-10 border">
+                    <div data-spy="scroll" data-target="#headlines" data-offset="0" class="box border">
+                        <div id="content-0"></div>
+                        <div id="content-1"></div>
+                        <div id="content-2"></div>
+                        <div id="content-3"></div>
+                        <div id="content-4"></div>
+                    </div>                                                     <!-- end spy-->
+                </div>                                                         <!-- end col-10 -->
+            </div>                                                             <!-- end row -->
+        </div>                                                                 <!-- end container -->
+    </div>                                                                     <!-- end of body container-fluid -->
+
+    <!-- Pre-Game Modal -->
+    <div id="pre-game-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="pre-game-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="container-fluid pregame">
+                    <div class="row modal-header border">
+                        <h5 class="col-12 modal-title text-center border">Pre-Game Odds</h5>
+                    </div>
+                </div>
+                <div class="modal-body pregame">
+                    <div class="container-fluid">
+                        <div class="row border mb-1">                                                       <!-- begin header row -->
+                            <div class="col-1 border"></div>                                                <!-- end empty, spacer div -->
+                            <div class="col-4 border">SPREAD</div>                                          <!-- end game spread -->
+                            <div class="col-3 border">MONEYLINE</div>                                       <!-- end money line -->
+                            <div class="col-4 border">TOTAL</div>                                           <!-- end game total -->
+                        </div>                                                                              <!-- end header row -->
+        
+                        <div class="row border mb-1">                                                       <!-- begin home/OVER details row -->
+                            <img id="homeTeamLogoPre" class="col-1"></img>                                  <!-- end home logo -->
+                            <div class="col-4">                                                             <!-- begin home spread box -->
+                                <div class="container-fluid">
+                                    <div class="row border">                                                <!-- begin home spread row -->            
+                                        <div id="homeTeamSpreadPre" class="col-12"></div>                   <!-- home spread -->
+                                    </div>                                                                  <!-- end home spread row -->
+                                    <div id="homeTeamSpreadOddsPre" class="row border">                     <!-- begin home spread odds row -->
+                                        <div class="col-12"></div>                                          <!-- home spread odds -->
+                                    </div>                                                                  <!-- end home spread odds row -->
+                                </div>
+                            </div>                                                                          <!-- end home spread box -->
+                            <div id="homeTeamMLPre" class="col-3"></div>                                    <!-- home money line -->
+                            <div class="col-4">                                                             <!-- begin OVER totals box  -->
+                                <div class="container-fluid">
+                                    <div class="row border">                                                <!-- begin OVER totals row -->            
+                                        <div id="overTotalPre" class="col-12"></div>                        <!-- OVER totals -->
+                                    </div>                                                                  <!-- end OVER totals row -->
+                                    <div class="row border">                                                <!-- begin OVER totals odds row -->
+                                        <div id="overMLPre" class="col-12"></div>                           <!-- OVER totals odds -->
+                                    </div>                                                                  <!-- end OVER totals odds row -->
+                                </div>
+                            </div>                                                                          <!-- end OVER totals box  -->
+                        </div>                                                                              <!-- end home/OVER details row  -->
+
+                        <div class="row border">                                                            <!-- begin away/UNDER details row -->
+                            <img id="awayTeamLogoPre" class="col-1"></img>                                  <!-- end away logo -->
+                            <div class="col-4">                                                             <!-- begin away spread box -->
+                                <div class="container-fluid">
+                                    <div class="row border">                                                <!-- begin away spread row -->            
+                                        <div id="awayTeamSpreadPre" class="col-12"></div>                   <!-- away spread -->
+                                    </div>                                                                  <!-- end away spread row -->
+                                    <div class="row border">                                                <!-- begin away spread odds row -->
+                                        <div id="awayTeamSpreadOddsPre" class="col-12"></div>               <!-- away spread odds -->
+                                    </div>                                                                  <!-- end away spread odds row -->
+                                </div>
+                            </div>                                                                          <!-- end away spread box -->
+                            <div id="awayTeamMLPre" class="col-3"></div>                                    <!-- away money line -->
+                            <div class="col-4">                                                             <!-- begin UNDER totals box  -->
+                                <div class="container-fluid">
+                                    <div class="row border">                                                <!-- begin UNDER totals row -->            
+                                        <div id="underTotalPre" class="col-12"></div>                       <!-- UNDER totals -->
+                                    </div>                                                                  <!-- end UNDER totals row -->
+                                    <div class="row border">                                                <!-- begin UNDER totals odds row -->
+                                        <div id="underMLPre" class="col-12"></div>                          <!-- UNDER totals odds -->
+                                    </div>                                                                  <!-- end UNDER totals odds row -->
+                                </div>
+                            </div>                                                                          <!-- end UNDER totals box  -->
+                        </div>                                                                              <!-- end away/UNDER details row  -->
+                    </div>                                                                                  <!-- end modal body container -->  
+                </div>                                                                                      <!-- end of modal body div -->
+            </div>                                                                                          <!-- end of modal content -->
+        </div>                                                                                              <!-- end of modal dialog div -->
+    </div>                                                                                                  <!-- end pre-game modal div -->
+
+    <!-- Live-Game Modal -->
+    <div id="live-game-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="pre-game-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="container-fluid pregame">
+                    <div class="row modal-header border">
+                        <h5 class="col-12 modal-title text-center border">Live-Game Odds</h5>
+                    </div>
+                </div>
+                <div class="modal-body pregame">
+                    <div class="container-fluid">
+                        <div class="row border mb-1 text-center">                                                   <!-- begin header row -->
+                            <div class="col-1 border"></div>                                            <!-- end empty, spacer div -->
+                            <div class="col-5 border">SPREAD</div>                                      <!-- end live game spread -->
+                            <div class="col-6 border">MONEYLINE</div>                                   <!-- end live money line -->
+                        </div>                                                                          <!-- end header row -->
+        
+                        <div class="row border mb-1 text-center">                                                   <!-- begin home/OVER details row -->
+                            <img id="homeTeamLogoLive" class="col-1"></img>                             <!-- end home logo -->
+                            <div class="col-5">                                                         <!-- begin home spread box -->
+                                <div class="container-fluid">
+                                    <div class="row border">                                            <!-- begin live home spread row -->            
+                                        <div id="homeTeamSpreadLive" class="col-12"></div>              <!-- live home spread -->
+                                    </div>                                                              <!-- end live home spread row -->
+                                    <div class="row border">                                            <!-- begin live home spread odds row -->
+                                        <div id="homeTeamSpreadOddsLive" class="col-12"></div>          <!-- home live spread odds -->
+                                    </div>                                                              <!-- end live home spread odds row -->
+                                </div>
+                            </div>                                                                      <!-- end live home spread box -->
+                            <div id="homeTeamMLLive" class="col-6"></div>                               <!-- live home money line -->
+
+                        </div>                                                                          <!-- end hlive ome/OVER details row  -->
+
+                        <div class="row border text-center">                                                        <!-- begin live away/UNDER details row -->
+                            <img id="awayTeamLogoLive" class="col-1"></img>                             <!-- end away logo -->
+                            <div class="col-5">                                                         <!-- begin live away spread box -->
+                                <div class="container-fluid">
+                                    <div class="row border">                                            <!-- begin live away spread row -->            
+                                        <div id="awayTeamSpreadLive" class="col-12"></div>              <!-- live away spread -->
+                                    </div>                                                              <!-- end live away spread row -->
+                                    <div class="row border">                                            <!-- begin live away spread odds row -->
+                                        <div id="awayTeamSpreadOddsLive" class="col-12"></div>          <!-- live away spread odds -->
+                                    </div>                                                              <!-- end live away spread odds row -->
+                                </div>
+                            </div>                                                                      <!-- end live away spread box -->
+                            <div id="awayTeamMLLive" class="col-6"></div>                               <!-- away live money line -->
+                        </div>                                                                          <!-- end live away/UNDER details row  -->
+                    </div>                                                                              <!-- end live modal body container -->  
+                </div>                                                                                  <!-- end live modal body div -->
+            </div>                                                                                      <!-- end live modal content -->
+        </div>                                                                                          <!-- end live modal dialog div -->
+    </div>                                                                                              <!-- end live modal div -->
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JavaScript, then user logic.js file -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- scrollspy jQuery functionality per Bootstrap documentation -->
+    <script> 
+        $('[data-spy="scroll"]').each(function() {
+            let $spy = $(this).scrollspy('refresh');
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+    <script src="assets/logic.js"></script>
+   
+
+
+</body>
+</html>
+
+
+
+<!-- matching modal to score card -->
+    <!-- render scorecard on the page -->
+        <!-- attach attr of "gameID" and equal to the instance's gameID-->
+    <!-- on click of the instance's modal, need to render modal accordingly -->
+        <!-- for pregame scorecard, filter through scheduledArr and match on gameEl.gameID -->
+        <!-- for in-progress / live scorecard, filter through the inProgressArr and match on gameEl.gameID -->
+        <!-- for completed scorecard, filter through the completedArr and match on gameEl.gameID -->
